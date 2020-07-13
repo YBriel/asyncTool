@@ -15,6 +15,7 @@ public class DeWorker2 implements IWorker<User, String>, ICallback<User, String>
 
     @Override
     public String action(User object, Map<String, WorkerWrapper> allWrappers) {
+        System.out.println("这是第三个开始执行了！");
         System.out.println("-----------------");
         System.out.println("par1的执行结果是： " + allWrappers.get("second").getWorkResult());
         System.out.println("取par1的结果作为自己的入参，并将par1的结果加上一些东西");

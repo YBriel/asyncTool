@@ -39,11 +39,29 @@ public class Test {
                 .callback(w)
                 .build();
 
+        WorkerWrapper<User, String> wrapper1 =  new WorkerWrapper.Builder<User, String>()
+                .worker(w2)
+                .callback(w2)
+                .build();
+
+        WorkerWrapper<String, User> wrapper2 = new WorkerWrapper.Builder<String, User>()
+                .worker(w1)
+                .callback(w1)
+                .build();
+
+        WorkerWrapper<String, User> wrapper3 = new WorkerWrapper.Builder<String, User>()
+                .worker(w)
+                .callback(w)
+                .build();
+
         //V1.3后，不用给wrapper setParam了，直接在worker的action里自行根据id获取即可
 
-        Async.beginWork(3500, workerWrapper);
+      //  Async.beginWork(3500, workerWrapper);
+        Async.beginWork(3500, wrapper1);
+        Async.beginWork(3500, wrapper2);
+        Async.beginWork(3500, wrapper3);
 
-        System.out.println(workerWrapper2.getWorkResult());
+        //System.out.println(workerWrapper2.getWorkResult());
         Async.shutDown();
     }
 }

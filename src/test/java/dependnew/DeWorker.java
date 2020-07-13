@@ -15,6 +15,7 @@ public class DeWorker implements IWorker<String, User>, ICallback<String, User> 
 
     @Override
     public User action(String object, Map<String, WorkerWrapper> allWrappers) {
+        System.out.println("这是第一个开始执行了！");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
